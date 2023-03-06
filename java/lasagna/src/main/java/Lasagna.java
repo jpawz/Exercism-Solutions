@@ -8,7 +8,9 @@ public class Lasagna {
 		return expectedMinutesInOven() - actualMinutesInOven;
 	}
 
-	// TODO: define the 'preparationTimeInMinutes()' method
+	public int preparationTimeInMinutes(int numberOfLayers) {
+		return numberOfLayers * 2;
+	}
 
 	// TODO: define the 'totalTimeInMinutes()' method
 }
