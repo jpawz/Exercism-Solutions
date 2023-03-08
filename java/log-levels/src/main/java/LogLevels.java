@@ -1,3 +1,5 @@
+import static java.lang.String.format;
+
 public class LogLevels {
 
 	public static String message(String logLine) {
@@ -9,6 +11,6 @@ public class LogLevels {
 	}
 
 	public static String reformat(String logLine) {
-		return message(logLine) + " (" + logLevel(logLine) + ")";
+		return format("%s (%s)", message(logLine), logLevel(logLine));
 	}
 }
