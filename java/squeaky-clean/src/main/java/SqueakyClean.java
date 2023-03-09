@@ -6,6 +6,8 @@ class SqueakyClean {
 		String withoutControlCharacters = withoutSpaces.replaceAll("\\p{Cc}", "CTRL");
 		String camelCaseString = Pattern.compile("-(.)").matcher(withoutControlCharacters)
 				.replaceAll(mr -> mr.group(1).toUpperCase());
-		return camelCaseString;
+		String withoutDigitsAndGreekLowerCaseLetters = camelCaseString.replaceAll("[0-9α-ω]", "");
+		String onlyLetters = withoutDigitsAndGreekLowerCaseLetters.replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}_]", "");
+		return onlyLetters;
 	}
 }
