@@ -1,5 +1,10 @@
 public class Blackjack {
 
+	private static final String STAND = "S";
+	private static final String HIT = "H";
+	private static final String SPLIT = "P";
+	private static final String WIN = "W";
+
 	public int parseCard(String card) {
 		switch (card) {
 		case "ace":
@@ -36,25 +41,25 @@ public class Blackjack {
 
 	public String largeHand(boolean isBlackjack, int dealerScore) {
 		if (!isBlackjack) {
-			return "P";
+			return SPLIT;
 		} else if (dealerScore >= 10) {
-			return "S";
+			return STAND;
 		} else {
-			return "W";
+			return WIN;
 		}
 	}
 
 	public String smallHand(int handScore, int dealerScore) {
 		if (handScore >= 17) {
-			return "S";
+			return STAND;
 		}
 		if (handScore <= 11) {
-			return "H";
+			return HIT;
 		}
 		if (handScore >= 12 && handScore <= 16 && dealerScore >= 7) {
-			return "H";
+			return HIT;
 		} else {
-			return "S";
+			return STAND;
 		}
 
 	}
