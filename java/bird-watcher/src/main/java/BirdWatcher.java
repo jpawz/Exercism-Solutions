@@ -12,12 +12,13 @@ class BirdWatcher {
 	}
 
 	public int getToday() {
-		int todayIndex = birdsPerDay.length - 1;
+		int todayIndex = getTodayIndex();
 		return birdsPerDay[todayIndex];
 	}
 
 	public void incrementTodaysCount() {
-		throw new UnsupportedOperationException("Please implement the BirdCount.incrementTodaysCount() method");
+		int todayIndex = getTodayIndex();
+		birdsPerDay[todayIndex] = birdsPerDay[todayIndex] + 1;
 	}
 
 	public boolean hasDayWithoutBirds() {
@@ -30,5 +31,9 @@ class BirdWatcher {
 
 	public int getBusyDays() {
 		throw new UnsupportedOperationException("Please implement the BirdCount.getBusyDays() method");
+	}
+
+	private int getTodayIndex() {
+		return birdsPerDay.length - 1;
 	}
 }
