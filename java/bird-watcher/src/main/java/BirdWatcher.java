@@ -22,7 +22,11 @@ class BirdWatcher {
 	}
 
 	public boolean hasDayWithoutBirds() {
-		throw new UnsupportedOperationException("Please implement the BirdCount.hasDayWithoutBirds() method");
+		for (int birds : birdsPerDay) {
+			if (birds == 0)
+				return true;
+		}
+		return false;
 	}
 
 	public int getCountForFirstDays(int numberOfDays) {
