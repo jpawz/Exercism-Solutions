@@ -30,7 +30,10 @@ class BirdWatcher {
 	}
 
 	public int getCountForFirstDays(int numberOfDays) {
-		throw new UnsupportedOperationException("Please implement the BirdCount.getCountForFirstDays() method");
+		return Arrays.stream(birdsPerDay)
+				.limit(numberOfDays)
+				.reduce(Integer::sum)
+				.orElse(0);
 	}
 
 	public int getBusyDays() {
