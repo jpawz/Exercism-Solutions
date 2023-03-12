@@ -12,7 +12,8 @@ class BirdWatcher {
 	}
 
 	public int getToday() {
-		throw new UnsupportedOperationException("Please implement the BirdCount.getToday() method");
+		int todayIndex = birdsPerDay.length - 1;
+		return birdsPerDay[todayIndex];
 	}
 
 	public void incrementTodaysCount() {
