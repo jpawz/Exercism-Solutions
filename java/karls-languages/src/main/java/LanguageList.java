@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class LanguageList {
 	private final List<String> languages = new ArrayList<>();
@@ -18,10 +17,10 @@ public class LanguageList {
 	}
 
 	public String firstLanguage() {
-		if (languages.size() > 0) {
-			return languages.get(0);
+		if (languages.isEmpty()) {
+			return "";
 		}
-		return "";
+		return languages.get(0);
 	}
 
 	public int count() {
@@ -33,8 +32,6 @@ public class LanguageList {
 	}
 
 	public boolean isExciting() {
-		Predicate<String> isJavaOrKotlin = language -> language == "Java" || language == "Kotlin";
-		return languages.stream()
-				.anyMatch(isJavaOrKotlin);
+		return languages.contains("Java") || languages.contains("Kotlin");
 	}
 }
