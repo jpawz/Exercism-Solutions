@@ -19,22 +19,13 @@ class NeedForSpeed {
 		return distance;
 	}
 
-	public int getBatteryDrain() {
-		return batteryDrain;
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-
 	public void drive() {
 		if (batteryDrained()) {
 			return;
 		}
 
 		if (isEnoughBatteryForDrive()) {
-			distance += speed;
-			battery -= batteryDrain;
+			calculateFullDrive();
 		} else {
 			calculatePartialDrive();
 		}
@@ -46,6 +37,11 @@ class NeedForSpeed {
 
 	private boolean isEnoughBatteryForDrive() {
 		return battery - batteryDrain >= 0;
+	}
+
+	private void calculateFullDrive() {
+		distance += speed;
+		battery -= batteryDrain;
 	}
 
 	private void calculatePartialDrive() {
@@ -62,10 +58,14 @@ class RaceTrack {
 	}
 
 	public boolean tryFinishTrack(NeedForSpeed car) {
-		if ((((double) distance / car.getSpeed()) * car.getBatteryDrain()) > 100) {
-			return false;
-		} else {
+		while (!car.batteryDrained()) {
+			car.drive();
+		}
+
+		if (car.distanceDriven() >= distance) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 }
