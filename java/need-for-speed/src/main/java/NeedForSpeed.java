@@ -1,26 +1,48 @@
 class NeedForSpeed {
 	private int speed;
+	private int battery;
 	private int batteryDrain;
+	private int distance;
 
 	public NeedForSpeed(int speed, int batteryDrain) {
 		this.speed = speed;
 		this.batteryDrain = batteryDrain;
+		this.distance = 0;
+		this.battery = 100;
 	}
 
 	public boolean batteryDrained() {
-		throw new UnsupportedOperationException("Please implement the NeedForSpeed.batteryDrained() method");
+		return battery == 0;
 	}
 
 	public int distanceDriven() {
-		throw new UnsupportedOperationException("Please implement the NeedForSpeed.distanceDriven() method");
+		return distance;
 	}
 
 	public void drive() {
-		throw new UnsupportedOperationException("Please implement the NeedForSpeed.drive() method");
+		if (batteryDrained()) {
+			return;
+		}
+
+		if (isEnoughBatteryForDrive()) {
+			distance += speed;
+			battery -= batteryDrain;
+		} else {
+			calculatePartialDrive();
+		}
 	}
 
 	public static NeedForSpeed nitro() {
-		throw new UnsupportedOperationException("Please implement the (static) NeedForSpeed.nitro() method");
+		return new NeedForSpeed(50, 4);
+	}
+
+	private boolean isEnoughBatteryForDrive() {
+		return battery - batteryDrain >= 0;
+	}
+
+	private void calculatePartialDrive() {
+		battery = 0;
+		distance = battery * speed / batteryDrain;
 	}
 }
 
