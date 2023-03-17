@@ -19,6 +19,14 @@ class NeedForSpeed {
 		return distance;
 	}
 
+	public int getBatteryDrain() {
+		return batteryDrain;
+	}
+
+	public int getSpeed() {
+		return speed;
+	}
+
 	public void drive() {
 		if (batteryDrained()) {
 			return;
@@ -54,6 +62,10 @@ class RaceTrack {
 	}
 
 	public boolean tryFinishTrack(NeedForSpeed car) {
-		throw new UnsupportedOperationException("Please implement the RaceTrack.tryFinishTrack() method");
+		if (((distance / car.getSpeed()) * car.getBatteryDrain()) > 100) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
