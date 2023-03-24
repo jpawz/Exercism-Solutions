@@ -24,18 +24,20 @@ class Warrior extends Fighter {
 
 class Wizard extends Fighter {
 
+	private boolean isPreparedSpell = false;
+
 	@Override
 	boolean isVulnerable() {
-		throw new UnsupportedOperationException("Please implement Wizard.isVulnerable() method");
+		return !isPreparedSpell;
 	}
 
 	@Override
 	int damagePoints(Fighter warrior) {
-		throw new UnsupportedOperationException("Please implement Wizard.damagePoints() method");
+		return isPreparedSpell ? 12 : 3;
 	}
 
 	void prepareSpell() {
-		throw new UnsupportedOperationException("Please implement Wizard.prepareSpell() method");
+		isPreparedSpell = true;
 	}
 
 }
