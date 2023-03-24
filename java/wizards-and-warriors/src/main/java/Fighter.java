@@ -18,7 +18,7 @@ class Warrior extends Fighter {
 
 	@Override
 	int damagePoints(Fighter wizard) {
-		throw new UnsupportedOperationException("Please implement Warrior.damagePoints() method");
+		return wizard.isVulnerable() ? 10 : 6;
 	}
 }
 
