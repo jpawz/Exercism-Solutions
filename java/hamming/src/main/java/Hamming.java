@@ -17,10 +17,12 @@ public class Hamming {
 		CharacterIterator rightStrandIterator = new StringCharacterIterator(rightStrand);
 
 		while ((leftStrandIterator.current() != CharacterIterator.DONE)
-				&& (rightStrandIterator.current() != CharacterIterator.DONE)) {
+				|| (rightStrandIterator.current() != CharacterIterator.DONE)) {
 			if (leftStrandIterator.current() != rightStrandIterator.current()) {
 				differences++;
 			}
+			leftStrandIterator.next();
+			rightStrandIterator.next();
 		}
 
 		return differences;
