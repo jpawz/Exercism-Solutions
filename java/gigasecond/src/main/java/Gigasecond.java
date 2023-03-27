@@ -2,15 +2,19 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Gigasecond {
-    public Gigasecond(LocalDate moment) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	private LocalDateTime moment;
+	private static final long GIGASECOND = (long) 1e9;
 
-    public Gigasecond(LocalDateTime moment) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	public Gigasecond(LocalDate moment) {
+		this.moment = moment.atStartOfDay();
+	}
 
-    public LocalDateTime getDateTime() {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	public Gigasecond(LocalDateTime moment) {
+		this.moment = moment;
+
+	}
+
+	public LocalDateTime getDateTime() {
+		return moment.plusSeconds(GIGASECOND);
+	}
 }
