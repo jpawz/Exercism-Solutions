@@ -1,5 +1,4 @@
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
+import java.util.stream.IntStream;
 
 public class Hamming {
 	private final String leftStrand;
@@ -12,20 +11,9 @@ public class Hamming {
 	}
 
 	public int getHammingDistance() {
-		int differences = 0;
-
-		CharacterIterator leftStrandIterator = new StringCharacterIterator(leftStrand);
-		CharacterIterator rightStrandIterator = new StringCharacterIterator(rightStrand);
-
-		while ((leftStrandIterator.current() != CharacterIterator.DONE)
-				|| (rightStrandIterator.current() != CharacterIterator.DONE)) {
-			if (leftStrandIterator.current() != rightStrandIterator.current()) {
-				differences++;
-			}
-			leftStrandIterator.next();
-			rightStrandIterator.next();
-		}
-
+		int differences = (int) IntStream.range(0, leftStrand.length())
+				.filter(i -> leftStrand.charAt(i) != rightStrand.charAt(i))
+				.count();
 		return differences;
 	}
 
