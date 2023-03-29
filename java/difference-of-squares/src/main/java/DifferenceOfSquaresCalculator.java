@@ -8,7 +8,9 @@ class DifferenceOfSquaresCalculator {
 	}
 
 	int computeSumOfSquaresTo(int input) {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return IntStream.rangeClosed(1, input)
+				.map(number -> number * number)
+				.sum();
 	}
 
 	int computeDifferenceOfSquares(int input) {
