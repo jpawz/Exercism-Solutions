@@ -1,11 +1,17 @@
 class Scrabble {
 	private final String word;
+	private final int score;
 
 	Scrabble(String word) {
 		this.word = word;
+		this.score = calculateScore();
 	}
 
 	int getScore() {
+		return score;
+	}
+
+	private int calculateScore() {
 		return word.chars()
 				.map(c -> letterToValue((char) c))
 				.sum();
