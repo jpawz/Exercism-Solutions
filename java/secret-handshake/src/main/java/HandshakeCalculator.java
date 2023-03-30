@@ -7,22 +7,16 @@ class HandshakeCalculator {
 	List<Signal> calculateHandshake(int number) {
 		List<Signal> signals = new ArrayList<>();
 
-		int[] code = new int[5];
-
 		for (int i = 0; i < 5; i++) {
-			code[i] = number % 2;
-
-			number = number / 2;
-		}
-
-		for (int i = 0; i < 4; i++) {
-			if (code[i] == 1) {
+			if ((number % 2 == 1) && i != 4) {
 				signals.add(numberToSignal(i));
 			}
-		}
 
-		if (code[4] == 1) {
-			Collections.reverse(signals);
+			if (i == 4 && number % 2 == 1) {
+				Collections.reverse(signals);
+			}
+
+			number = number / 2;
 		}
 
 		return signals;
