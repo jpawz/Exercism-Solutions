@@ -1,42 +1,32 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class HandshakeCalculator {
 
 	private static final int handshakeLength = 4;
 
-	private static final Map<Integer, Signal> signalsMap = new HashMap<>(handshakeLength);
-
-	static {
-		signalsMap.put(0, Signal.WINK);
-		signalsMap.put(1, Signal.DOUBLE_BLINK);
-		signalsMap.put(2, Signal.CLOSE_YOUR_EYES);
-		signalsMap.put(3, Signal.JUMP);
-	}
+	private static final Signal[] signals = { Signal.WINK, Signal.DOUBLE_BLINK, Signal.CLOSE_YOUR_EYES, Signal.JUMP };
 
 	List<Signal> calculateHandshake(int number) {
-		List<Signal> signals = new ArrayList<>();
+		List<Signal> handshake = new ArrayList<>();
 
-		for (int i = 0; i <= handshakeLength; i++) {
-			if (number % 2 == 1) {
-				if (!isLastDigit(i)) {
-					signals.add(signalsMap.get(i));
-				} else {
-					Collections.reverse(signals);
-				}
+		for (int i = 0; i < handshakeLength; i++) {
+			if (isBitSet(number)) {
+				handshake.add(signals[i]);
 			}
 
 			number = number / 2;
 		}
 
-		return signals;
+		if (isBitSet(number)) {
+			Collections.reverse(handshake);
+		}
+
+		return handshake;
 	}
 
-	private boolean isLastDigit(int i) {
-		return i == handshakeLength;
+	private boolean isBitSet(int number) {
+		return number % 2 == 1;
 	}
-
 }
