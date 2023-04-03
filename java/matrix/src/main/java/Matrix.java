@@ -1,15 +1,34 @@
-
 class Matrix {
 
-    Matrix(String matrixAsString) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	private final int[][] matrix;
 
-    int[] getRow(int rowNumber) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	Matrix(String matrixAsString) {
+		matrix = parseMatrixString(matrixAsString);
+	}
 
-    int[] getColumn(int columnNumber) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	int[] getRow(int rowNumber) {
+		return matrix[rowNumber - 1];
+	}
+
+	int[] getColumn(int columnNumber) {
+		int[] column = new int[matrix.length];
+
+		for (int i = 0; i < matrix.length; i++) {
+			column[i] = matrix[i][columnNumber - 1];
+		}
+		return column;
+	}
+
+	private int[][] parseMatrixString(String matrixString) {
+		String[] rows = matrixString.split("\n");
+		int[][] m = new int[rows.length][rows[0].split(" ").length];
+
+		for (int i = 0; i < rows.length; i++) {
+			String[] cells = rows[i].split(" ");
+			for (int j = 0; j < cells.length; j++) {
+				m[i][j] = Integer.parseInt(cells[j]);
+			}
+		}
+		return m;
+	}
 }
