@@ -20,15 +20,19 @@ class Matrix {
 	}
 
 	private int[][] parseMatrixString(String matrixString) {
-		String[] rows = matrixString.split("\n");
-		int[][] m = new int[rows.length][rows[0].split(" ").length];
+		String columnSeparator = "\n";
+		String rowSeparator = " ";
+		String[] rows = matrixString.split(columnSeparator);
+		int numberOfRows = rows.length;
+		int numberOfColumns = rows[0].split(rowSeparator).length;
+		int[][] matrixOfInts = new int[numberOfRows][numberOfColumns];
 
 		for (int i = 0; i < rows.length; i++) {
-			String[] cells = rows[i].split(" ");
+			String[] cells = rows[i].split(rowSeparator);
 			for (int j = 0; j < cells.length; j++) {
-				m[i][j] = Integer.parseInt(cells[j]);
+				matrixOfInts[i][j] = Integer.parseInt(cells[j]);
 			}
 		}
-		return m;
+		return matrixOfInts;
 	}
 }
