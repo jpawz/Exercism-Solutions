@@ -1,11 +1,15 @@
 class RotationalCipher {
+	private final int shiftKey;
 
-    RotationalCipher(int shiftKey) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	RotationalCipher(int shiftKey) {
+		this.shiftKey = shiftKey;
+	}
 
-    String rotate(String data) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+	String rotate(String data) {
+		return data.codePoints()
+				.map(c -> c + shiftKey)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+				.toString();
+	}
 
 }
