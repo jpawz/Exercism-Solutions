@@ -13,13 +13,11 @@ class RotationalCipher {
 	}
 
 	private int shiftCodePoint(int codePoint) {
-		if (codePoint >= 'a' && codePoint <= 'z') {
-			return (codePoint + shiftKey) <= 'z' ? codePoint + shiftKey : codePoint + shiftKey - 'z' + 'a' - 1;
+		if (!Character.isLetter(codePoint)) {
+			return codePoint;
 		}
-		if (codePoint >= 'A' && codePoint <= 'Z') {
-			return (codePoint + shiftKey) <= 'Z' ? codePoint + shiftKey : codePoint + shiftKey - 'Z' + 'A' - 1;
-		}
-		return codePoint;
+		char first = Character.isUpperCase(codePoint) ? 'A' : 'a';
+		return first + (codePoint + shiftKey - first) % 26;
 	}
 
 }
