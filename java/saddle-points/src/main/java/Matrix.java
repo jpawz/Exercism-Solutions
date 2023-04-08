@@ -1,7 +1,7 @@
+import static java.util.stream.IntStream.range;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 class Matrix {
 
@@ -16,14 +16,13 @@ class Matrix {
 
     rowsMax = values.stream()
         .mapToInt(row -> row.stream().mapToInt(Integer::intValue).max().orElseThrow()).toArray();
-    colsMin = IntStream.range(0, cols)
-        .map(col -> IntStream.range(0, rows).map(i -> values.get(i).get(col)).min().orElseThrow())
-        .toArray();
+    colsMin = range(0, cols)
+        .map(col -> range(0, rows).map(i -> values.get(i).get(col)).min().orElseThrow()).toArray();
   }
 
   Set<MatrixCoordinate> getSaddlePoints() {
-    return IntStream.range(0, rows).boxed()
-        .flatMap(row -> IntStream.range(0, cols).filter(col -> rowsMax[row] == colsMin[col])
+    return range(0, rows).boxed()
+        .flatMap(row -> range(0, cols).filter(col -> rowsMax[row] == colsMin[col])
             .mapToObj(col -> new MatrixCoordinate(row + 1, col + 1)))
         .collect(Collectors.toSet());
   }
