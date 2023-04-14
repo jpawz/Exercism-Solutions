@@ -4,7 +4,6 @@ import static java.util.Collections.singletonList;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class FlattenerTest {
@@ -69,7 +68,6 @@ public class FlattenerTest {
 		"negative two")));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testNestedListsFullOfNullsOnly() {
 	assertEquals(emptyList(),
