@@ -14,7 +14,8 @@ class Flattener {
 	    Object currentObject = stack.pop();
 	    if (currentObject instanceof List<?>) {
 		for (Object o : (List<?>) currentObject) {
-		    stack.push(o);
+		    if (o != null)
+			stack.push(o);
 		}
 	    } else {
 		flatList.add(currentObject);

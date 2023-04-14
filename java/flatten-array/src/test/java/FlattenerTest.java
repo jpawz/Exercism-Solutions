@@ -42,7 +42,6 @@ public class FlattenerTest {
 		"-2")));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSixLevelsOfNestingWithNoNulls() {
 	assertEquals(
@@ -56,7 +55,6 @@ public class FlattenerTest {
 		"8")));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void testSixLevelsOfNestingWithNulls() {
 	assertEquals(
