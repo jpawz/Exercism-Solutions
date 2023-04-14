@@ -1,18 +1,26 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Deque;
 import java.util.List;
 
 class Flattener {
 
-    @SuppressWarnings("unchecked")
-    List<Object> flatten(List<Object> list) {
+    List<Object> flatten(List<?> list) {
 	List<Object> flatList = new ArrayList<>();
-	for (Object o : list) {
-	    if (o instanceof List) {
-		flatList.addAll((List<Object>) o);
+	Deque<Object> stack = new ArrayDeque<>();
+	stack.push(list);
+	while (!stack.isEmpty()) {
+	    Object currentObject = stack.pop();
+	    if (currentObject instanceof List<?>) {
+		for (Object o : (List<?>) currentObject) {
+		    stack.push(o);
+		}
 	    } else {
-		flatList.add(o);
+		flatList.add(currentObject);
 	    }
 	}
+	Collections.reverse(flatList);
 	return flatList;
     }
 }
