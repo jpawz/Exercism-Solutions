@@ -1,7 +1,12 @@
+import java.util.Collections;
 import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 class WordCount {
     public Map<String, Integer> phrase(String input) {
-        throw new UnsupportedOperationException("Please implement the WordCount.phrase() method.");
+	return Collections.list(new StringTokenizer(input.toLowerCase())).stream().map(t -> (String) t)
+			  .collect(Collectors.toMap(Function.identity(), s -> 1, Integer::sum));
     }
 }
