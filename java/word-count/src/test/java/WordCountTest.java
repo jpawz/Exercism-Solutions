@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class WordCountTest {
@@ -109,7 +108,6 @@ public class WordCountTest {
 	    expectedWordCount, actualWordCount);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void withApostrophes() {
 	expectedWordCount.put("first", 1);
@@ -123,7 +121,6 @@ public class WordCountTest {
 	    expectedWordCount, actualWordCount);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void substringsFromTheBeginning() {
 	expectedWordCount.put("joe", 1);
@@ -140,7 +137,6 @@ public class WordCountTest {
 	    expectedWordCount, actualWordCount);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void withQuotations() {
 	expectedWordCount.put("joe", 1);
@@ -155,7 +151,6 @@ public class WordCountTest {
 	    expectedWordCount, actualWordCount);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void multipleSpacesNotDetectedAsAWord() {
 	expectedWordCount.put("multiple", 1);
@@ -166,7 +161,6 @@ public class WordCountTest {
 	    expectedWordCount, actualWordCount);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void alternatingWordSeperatorsNotDetectedAsAWord() {
 	expectedWordCount.put("one", 1);

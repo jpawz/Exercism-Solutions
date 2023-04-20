@@ -1,16 +1,11 @@
-import java.util.Collections;
 import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 class WordCount {
     public Map<String, Integer> phrase(String input) {
-	return Collections.list(new StringTokenizer(input.toLowerCase(), ",!&@$%^&: \n")).stream()
-			  .map(t -> (String) t)
-			  .collect(Collectors.toMap(
-			      Function.identity(),
-			      s -> 1,
-			      Integer::sum));
+	Pattern pattern = Pattern.compile("(?!'.*')\\b[\\w']+\\b");
+	return pattern.matcher(input.toLowerCase()).results()
+		      .collect(Collectors.toMap(mr -> mr.group(), mr -> 1, Integer::sum));
     }
 }
