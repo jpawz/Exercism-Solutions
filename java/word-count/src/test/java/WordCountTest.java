@@ -52,7 +52,6 @@ public class WordCountTest {
 	    expectedWordCount, actualWordCount);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void handlesCrampedLists() {
 	expectedWordCount.put("one", 1);
