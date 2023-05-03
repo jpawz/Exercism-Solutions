@@ -14,46 +14,45 @@ public class RobotTest {
 
     @Before
     public void setUp() {
-        robot = new Robot();
+	robot = new Robot();
     }
 
     @Test
     public void hasName() {
-        assertIsValidName(robot.getName());
+	assertIsValidName(robot.getName());
     }
 
     @Test
     public void sameRobotsHaveSameNames() {
-        assertThat(robot.getName()).isEqualTo(robot.getName());
+	assertThat(robot.getName()).isEqualTo(robot.getName());
     }
 
     @Test
     public void differentRobotsHaveDifferentNames() {
-        assertThat(robot.getName()).isNotEqualTo(new Robot().getName());
+	assertThat(robot.getName()).isNotEqualTo(new Robot().getName());
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void resetName() {
-        final String name = robot.getName();
-        robot.reset();
-        final String name2 = robot.getName();
-        assertThat(name).isNotEqualTo(name2);
-        assertIsValidName(name2);
+	final String name = robot.getName();
+	robot.reset();
+	final String name2 = robot.getName();
+	assertThat(name).isNotEqualTo(name2);
+	assertIsValidName(name2);
     }
-    
+
     @Ignore("Remove to run test")
     @Test
     public void robotNamesAreUnique() {
-        Set<String> robotNames = new HashSet<>();
-        int sampleSize = 5000;
-        for (int i = 0; i < sampleSize; i++) {
-            robotNames.add(new Robot().getName());
-        }
-        assertThat(robotNames).hasSize(sampleSize);
+	Set<String> robotNames = new HashSet<>();
+	int sampleSize = 5000;
+	for (int i = 0; i < sampleSize; i++) {
+	    robotNames.add(new Robot().getName());
+	}
+	assertThat(robotNames).hasSize(sampleSize);
     }
 
     private static void assertIsValidName(String name) {
-        assertThat(name).matches(EXPECTED_ROBOT_NAME_PATTERN);
+	assertThat(name).matches(EXPECTED_ROBOT_NAME_PATTERN);
     }
 }

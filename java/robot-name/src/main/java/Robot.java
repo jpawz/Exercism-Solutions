@@ -6,15 +6,19 @@ class Robot {
     private static final int targetStringLength = 2;
     private static final Random random = new Random();
 
-    private final String name;
+    private String name;
 
     Robot() {
+
+	name = generateName();
+    }
+
+    private String generateName() {
 	String prefix = random.ints(capitalACode, capitalZCode + 1).limit(targetStringLength)
 			      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 			      .toString();
 	int suffix = random.nextInt(100, 999);
-
-	name = prefix + suffix;
+	return prefix + suffix;
     }
 
     String getName() {
@@ -22,6 +26,6 @@ class Robot {
     }
 
     void reset() {
-
+	name = generateName();
     }
 }
