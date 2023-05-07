@@ -1,24 +1,26 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.IntStream;
 
 class Robot {
-    private static final int capitalACode = 65;
-    private static final int capitalZCode = 90;
-    private static final int targetStringLength = 2;
-    private static final Random random = new Random();
+    private static int counter = 0;
+    private final static List<String> nameLibrary;
 
     private String name;
 
-    Robot() {
-
-	name = generateName();
+    static {
+	nameLibrary = new ArrayList<>();
+	IntStream.range(0, 1000).boxed()
+		 .forEach(number -> IntStream.rangeClosed('A', 'Z').boxed()
+					     .forEach(firsChar -> IntStream.rangeClosed('A', 'Z').boxed().forEach(
+						 secondChar -> nameLibrary.add(
+						     String.format("%c%c%03d", firsChar, secondChar, number)))));
+	Collections.shuffle(nameLibrary);
     }
 
-    private String generateName() {
-	String prefix = random.ints(capitalACode, capitalZCode + 1).limit(targetStringLength)
-			      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-			      .toString();
-	int suffix = random.nextInt(100, 999);
-	return prefix + suffix;
+    Robot() {
+	name = nameLibrary.get(counter++);
     }
 
     String getName() {
@@ -26,6 +28,6 @@ class Robot {
     }
 
     void reset() {
-	name = generateName();
+	name = nameLibrary.get(counter++);
     }
 }

@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RobotTest {
@@ -41,7 +40,6 @@ public class RobotTest {
 	assertIsValidName(name2);
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void robotNamesAreUnique() {
 	Set<String> robotNames = new HashSet<>();
