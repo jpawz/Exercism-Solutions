@@ -2,8 +2,10 @@ import java.util.List;
 
 class BinarySearch {
 
-	public BinarySearch(List<Integer> sortedList) {
-		// TODO Auto-generated constructor stub
+	private List<Integer> songList;
+
+	public BinarySearch(List<Integer> songList) {
+		this.songList = songList;
 	}
 
 	int search(int a, int[] arr) {
@@ -23,7 +25,7 @@ class BinarySearch {
 	}
 
 	public int indexOf(int i) {
-		return 0;
+		return songList.indexOf(i);
 	}
 
 }
