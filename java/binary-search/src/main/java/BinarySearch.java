@@ -24,8 +24,21 @@ class BinarySearch {
 		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
 	}
 
-	public int indexOf(int i) {
-		return songList.indexOf(i);
+	public int indexOf(int songTitle) throws ValueNotFoundException {
+		int low = 0;
+		int hight = songList.size() - 1;
+
+		while (low <= hight) {
+			int mid = (low + hight) / 2;
+			if (songList.get(mid) == songTitle) {
+				return mid;
+			} else if (songList.get(mid) > songTitle) {
+				hight = mid - 1;
+			} else
+				low = mid + 1;
+		}
+
+		throw new ValueNotFoundException("Value not in array");
 	}
 
 }
