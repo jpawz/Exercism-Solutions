@@ -1,10 +1,28 @@
-/*
+class BankAccount {
 
-Since this exercise has a difficulty of > 4 it doesn't come
-with any starter implementation.
-This is so that you get to practice creating classes and methods
-which is an important part of programming in Java.
+	public void open() {
+		// TODO Auto-generated method stub
 
-Please remove this comment when submitting your solution.
+	}
 
-*/
+	public int getBalance() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void deposit(int i) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void withdraw(int i) throws BankAccountActionInvalidException {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
