@@ -12,11 +12,17 @@ class BankAccount {
 		return balance;
 	}
 
-	public void deposit(int amount) {
+	public void deposit(int amount) throws BankAccountActionInvalidException {
+		if (amount <= 0) {
+			throw new BankAccountActionInvalidException("Cannot deposit or withdraw negative amount");
+		}
 		balance += amount;
 	}
 
 	public void withdraw(int amount) throws BankAccountActionInvalidException {
+		if (amount <= 0) {
+			throw new BankAccountActionInvalidException("Cannot deposit or withdraw negative amount");
+		}
 		if (balance == 0) {
 			throw new BankAccountActionInvalidException("Cannot withdraw money from an empty account");
 		}
