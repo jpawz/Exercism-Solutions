@@ -17,8 +17,11 @@ class BankAccount {
 	}
 
 	public void withdraw(int amount) throws BankAccountActionInvalidException {
-		if (balance - amount < 0) {
+		if (balance == 0) {
 			throw new BankAccountActionInvalidException("Cannot withdraw money from an empty account");
+		}
+		if (balance - amount < 0) {
+			throw new BankAccountActionInvalidException("Cannot withdraw more money than is currently in the account");
 		}
 		balance -= amount;
 	}
