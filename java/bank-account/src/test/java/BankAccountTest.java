@@ -57,7 +57,6 @@ public class BankAccountTest {
 		assertThat(bankAccount.getBalance()).isEqualTo(0);
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void cannotWithdrawMoneyFromEmptyAccount() {
 		bankAccount.open();
