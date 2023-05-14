@@ -1,18 +1,22 @@
 class BankAccount {
-
+	private boolean isOpen = false;
 	private int balance = 0;
 
 	public void open() {
-		// TODO Auto-generated method stub
-
+		isOpen = true;
 	}
 
-	public int getBalance() {
-		// TODO Auto-generated method stub
+	public int getBalance() throws BankAccountActionInvalidException {
+		if (!isOpen) {
+			throw new BankAccountActionInvalidException("Account closed");
+		}
 		return balance;
 	}
 
 	public void deposit(int amount) throws BankAccountActionInvalidException {
+		if (!isOpen) {
+			throw new BankAccountActionInvalidException("Account closed");
+		}
 		if (amount <= 0) {
 			throw new BankAccountActionInvalidException("Cannot deposit or withdraw negative amount");
 		}
@@ -20,6 +24,9 @@ class BankAccount {
 	}
 
 	public void withdraw(int amount) throws BankAccountActionInvalidException {
+		if (!isOpen) {
+			throw new BankAccountActionInvalidException("Account closed");
+		}
 		if (amount <= 0) {
 			throw new BankAccountActionInvalidException("Cannot deposit or withdraw negative amount");
 		}
@@ -33,8 +40,7 @@ class BankAccount {
 	}
 
 	public void close() {
-		// TODO Auto-generated method stub
-
+		isOpen = false;
 	}
 
 }
