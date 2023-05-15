@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.fail;
 
 import java.util.Random;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class BankAccountTest {
@@ -127,7 +126,6 @@ public class BankAccountTest {
 				.withMessage("Account closed");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void bankAccountIsClosedBeforeItIsOpened() {
 		assertThatExceptionOfType(BankAccountActionInvalidException.class)
@@ -135,7 +133,6 @@ public class BankAccountTest {
 				.withMessage("Account closed");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void canAdjustBalanceConcurrently() throws BankAccountActionInvalidException, InterruptedException {
 		bankAccount.open();
