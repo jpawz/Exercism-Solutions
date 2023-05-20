@@ -23,7 +23,9 @@ class DoublyLinkedList<T> {
 	}
 
 	T shift() {
-		throw new UnsupportedOperationException("Please implement the DoublyLinkedList.shift() method.");
+		T value = head.value;
+		head = head.next;
+		return value;
 	}
 
 	private static final class Element<T> {
