@@ -1,18 +1,20 @@
 class DoublyLinkedList<T> {
 	private Element<T> head;
+	private Element<T> tail;
 
 	void push(T value) {
 		if (head == null) {
-			head = new Element<>(value, null, null);
+			head = tail = new Element<>(value, null, null);
 		} else {
-			Element<T> element = new Element<>(value, null, head);
-			head = element;
+			Element<T> newElement = new Element<>(value, tail, null);
+			tail.next = newElement;
+			tail = newElement;
 		}
 	}
 
 	T pop() {
-		T value = head.value;
-		head = head.next;
+		T value = tail.value;
+		tail = tail.prev;
 		return value;
 	}
 
