@@ -31,7 +31,6 @@ public class DoublyLinkedListTest {
 		assertThat(list.shift()).isEqualTo("30");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testUnshiftShift() {
 		DoublyLinkedList<Character> list = new DoublyLinkedList<>();

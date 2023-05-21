@@ -19,7 +19,13 @@ class DoublyLinkedList<T> {
 	}
 
 	void unshift(T value) {
-		throw new UnsupportedOperationException("Please implement the DoublyLinkedList.unshift() method.");
+		if (head == null) {
+			head = tail = new Element<>(value, null, null);
+		} else {
+			Element<T> newElement = new Element<>(value, null, head);
+			head.prev = newElement;
+			head = newElement;
+		}
 	}
 
 	T shift() {
