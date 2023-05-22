@@ -11,7 +11,7 @@ class RaindropConverter {
 		if (number % 7 == 0) {
 			sound.append("Plong");
 		}
-		if (number % 3 != 0 && number % 5 != 00 && number % 7 != 0) {
+		if (number % 3 != 0 && number % 5 != 0 && number % 7 != 0) {
 			sound.append(number);
 		}
 		return sound.toString();
