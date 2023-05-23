@@ -37,25 +37,21 @@ public class IsogramCheckerTest {
 		assertThat(isogramChecker.isIsogram("subdermatoglyphic")).isTrue();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testCaseInsensitive() {
 		assertThat(isogramChecker.isIsogram("Alphabet")).isFalse();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testDuplicatMixedCase() {
 		assertThat(isogramChecker.isIsogram("alphAbet")).isFalse();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testIsogramWithHyphen() {
 		assertThat(isogramChecker.isIsogram("thumbscrew-japingly")).isTrue();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testIsogramWithDuplicatedCharAfterHyphen() {
 		assertThat(isogramChecker.isIsogram("thumbscrew-jappingly")).isFalse();

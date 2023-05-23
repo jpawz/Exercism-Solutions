@@ -4,12 +4,14 @@ class IsogramChecker {
 	private final IntPredicate isNotSpaceOrHyphen = c -> c != ' ' || c != '-';
 
 	boolean isIsogram(String phrase) {
-		long uniqueCharactersCount = phrase.chars()
+		long uniqueCharactersCount = phrase.toLowerCase()
+				.chars()
 				.filter(isNotSpaceOrHyphen)
 				.distinct()
 				.count();
 
-		long charactersCount = phrase.chars()
+		long charactersCount = phrase.toLowerCase()
+				.chars()
 				.filter(isNotSpaceOrHyphen)
 				.count();
 
