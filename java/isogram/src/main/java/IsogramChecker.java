@@ -1,7 +1,19 @@
-class IsogramChecker {
+import java.util.function.IntPredicate;
 
-    boolean isIsogram(String phrase) {
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-    }
+class IsogramChecker {
+	private final IntPredicate isNotSpaceOrHyphen = c -> c != ' ' || c != '-';
+
+	boolean isIsogram(String phrase) {
+		long uniqueCharactersCount = phrase.chars()
+				.filter(isNotSpaceOrHyphen)
+				.distinct()
+				.count();
+
+		long charactersCount = phrase.chars()
+				.filter(isNotSpaceOrHyphen)
+				.count();
+
+		return charactersCount == uniqueCharactersCount;
+	}
 
 }
