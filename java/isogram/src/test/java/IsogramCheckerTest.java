@@ -1,7 +1,6 @@
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class IsogramCheckerTest {
@@ -57,25 +56,21 @@ public class IsogramCheckerTest {
 		assertThat(isogramChecker.isIsogram("thumbscrew-jappingly")).isFalse();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testIsogramWithDuplicatedHyphen() {
 		assertThat(isogramChecker.isIsogram("six-year-old")).isTrue();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testMadeUpNameThatIsAnIsogram() {
 		assertThat(isogramChecker.isIsogram("Emily Jung Schwartzkopf")).isTrue();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testDuplicatedCharacterInTheMiddleIsNotIsogram() {
 		assertThat(isogramChecker.isIsogram("accentor")).isFalse();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testSameFirstAndLast() {
 		assertThat(new IsogramChecker().isIsogram("angola")).isFalse();

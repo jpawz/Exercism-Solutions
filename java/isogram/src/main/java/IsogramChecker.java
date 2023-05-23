@@ -1,7 +1,7 @@
 import java.util.function.IntPredicate;
 
 class IsogramChecker {
-	private final IntPredicate isNotSpaceOrHyphen = c -> c != ' ' || c != '-';
+	private final IntPredicate isNotSpaceOrHyphen = c -> c != ' ' && c != '-';
 
 	boolean isIsogram(String phrase) {
 		long uniqueCharactersCount = phrase.toLowerCase()
