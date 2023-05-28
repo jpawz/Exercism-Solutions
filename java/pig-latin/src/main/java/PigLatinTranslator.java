@@ -1,10 +1,12 @@
 class PigLatinTranslator {
 
-	private static final String VOWEL = "aeiouAEIOU";
+	private static final String VOWEL = "aeiouyAEIOUY";
 
 	public String translate(String word) {
 		if (isVowel(word.charAt(0)))
 			return word + "ay";
+		else if ("qu".equals(word.substring(0, 2)))
+			return word.substring(2) + word.substring(0, 2) + "ay";
 		else if (!isVowel(word.charAt(0)) && "qu".equals(word.substring(1, 3)))
 			return word.substring(3) + word.substring(0, 3) + "ay";
 		else
