@@ -6,11 +6,21 @@ class PigLatinTranslator {
 		if (isVowel(word.charAt(0)))
 			return word + "ay";
 		else
-			return word.substring(1) + word.charAt(0) + "ay";
+			return word.substring(firstVowelIndex(word)) + word.substring(0, firstVowelIndex(word)) + "ay";
 	}
 
 	private static boolean isVowel(char c) {
 		return VOWEL.indexOf(c) != -1;
+	}
+
+	private static int firstVowelIndex(String word) {
+		int vowelIndex = 0;
+
+		while (!isVowel(word.charAt(vowelIndex))) {
+			vowelIndex++;
+		}
+		;
+		return vowelIndex;
 	}
 
 }
