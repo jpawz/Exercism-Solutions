@@ -7,7 +7,7 @@ class PigLatinTranslator {
 			return word + "ay";
 		else if ("qu".equals(word.substring(0, 2)))
 			return word.substring(2) + word.substring(0, 2) + "ay";
-		else if (!isVowel(word.charAt(0)) && "qu".equals(word.substring(1, 3)))
+		else if (word.length() > 2 && !isVowel(word.charAt(0)) && "qu".equals(word.substring(1, 3)))
 			return word.substring(3) + word.substring(0, 3) + "ay";
 		else if (word.indexOf('y') > 0 && word.indexOf('y') < firstVowelIndex(word))
 			return word.substring(word.indexOf('y')) + word.substring(0, word.indexOf('y')) + "ay";
