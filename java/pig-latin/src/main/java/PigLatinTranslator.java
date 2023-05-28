@@ -1,8 +1,17 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 class PigLatinTranslator {
 
 	private static final String VOWEL = "aeiouAEIOU";
 
-	public String translate(String word) {
+	public String translate(String phraze) {
+		return Arrays.stream(phraze.split(" "))
+				.map(PigLatinTranslator::translateWord)
+				.collect(Collectors.joining(" "));
+	}
+
+	private static String translateWord(String word) {
 		if (isVowel(word.charAt(0)) || "xr".equals(word.substring(0, 2)) || "yt".equals(word.substring(0, 2)))
 			return word + "ay";
 		else if ("qu".equals(word.substring(0, 2)))

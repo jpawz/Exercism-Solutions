@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PigLatinTranslatorTest {
@@ -118,7 +117,6 @@ public class PigLatinTranslatorTest {
 		assertEquals("ymay", pigLatinTranslator.translate("my"));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAWholePhrase() {
 		assertEquals("ickquay astfay unray", pigLatinTranslator.translate("quick fast run"));
