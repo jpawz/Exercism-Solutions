@@ -5,6 +5,8 @@ class PigLatinTranslator {
 	public String translate(String word) {
 		if (isVowel(word.charAt(0)))
 			return word + "ay";
+		else if (!isVowel(word.charAt(0)) && "qu".equals(word.substring(1, 3)))
+			return word.substring(3) + word.substring(0, 3) + "ay";
 		else
 			return word.substring(firstVowelIndex(word)) + word.substring(0, firstVowelIndex(word)) + "ay";
 	}
