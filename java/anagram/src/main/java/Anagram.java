@@ -5,7 +5,8 @@ class Anagram {
 	private char[] wordAsSortedArray;
 
 	public Anagram(String word) {
-		this.wordAsSortedArray = word.toCharArray();
+		this.wordAsSortedArray = word.toLowerCase()
+				.toCharArray();
 		Arrays.sort(wordAsSortedArray);
 	}
 
@@ -16,7 +17,8 @@ class Anagram {
 	}
 
 	private boolean isAnagram(String word) {
-		char[] charArray = word.toCharArray();
+		char[] charArray = word.toLowerCase()
+				.toCharArray();
 		Arrays.sort(charArray);
 		return Arrays.equals(wordAsSortedArray, charArray);
 	}
