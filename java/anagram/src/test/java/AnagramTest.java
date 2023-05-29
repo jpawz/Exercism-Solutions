@@ -3,7 +3,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class AnagramTest {
@@ -120,7 +119,6 @@ public class AnagramTest {
 				.isEmpty();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testWordsAreNotAnagramsOfThemselvesCaseInsensitive() {
 		Anagram detector = new Anagram("BANANA");
@@ -129,7 +127,6 @@ public class AnagramTest {
 				.isEmpty();
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testWordsOtherThanThemselvesCanBeAnagrams() {
 		Anagram detector = new Anagram("LISTEN");
