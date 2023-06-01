@@ -5,7 +5,7 @@ class Darts {
 			return 1;
 		if (hit <= 5 && hit > 1)
 			return 5;
-		if (hit <= 0)
+		if (hit <= 1)
 			return 10;
 
 		return 0;
