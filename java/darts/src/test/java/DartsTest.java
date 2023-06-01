@@ -1,6 +1,5 @@
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class DartsTest {
@@ -27,55 +26,46 @@ public class DartsTest {
 		assertEquals(10, darts.score(0, -1));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void exactlyOnCentre() {
 		assertEquals(10, darts.score(0, 0));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void nearTheCentre() {
 		assertEquals(10, darts.score(-0.1, -0.1));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void justWithinTheInnerCircle() {
 		assertEquals(10, darts.score(0.7, 0.7));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void justOutsideTheInnerCircle() {
 		assertEquals(5, darts.score(0.8, -0.8));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void justWithinTheMiddleCircle() {
 		assertEquals(5, darts.score(-3.5, 3.5));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void justOutsideTheMiddleCircle() {
 		assertEquals(1, darts.score(-3.6, -3.6));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void justWithinTheOuterCircle() {
 		assertEquals(1, darts.score(-7.0, 7.0));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void justOutsideTheOuterCircle() {
 		assertEquals(0, darts.score(7.1, -7.1));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void asymmetricPositionBetweenTheInnerAndMiddleCircles() {
 		assertEquals(5, darts.score(0.5, -4));
