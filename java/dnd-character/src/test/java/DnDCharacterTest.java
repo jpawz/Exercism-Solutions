@@ -96,7 +96,6 @@ public class DnDCharacterTest {
 				.size());
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testDiceValuesBetween1And6() {
 		assertTrue(dndCharacter.rollDice()

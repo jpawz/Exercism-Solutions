@@ -8,7 +8,7 @@ class DnDCharacter {
 	}
 
 	List<Integer> rollDice() {
-		return new Random().ints(4)
+		return new Random().ints(4, 1, 7)
 				.boxed()
 				.toList();
 	}
