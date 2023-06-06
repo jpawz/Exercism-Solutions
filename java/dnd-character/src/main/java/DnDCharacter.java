@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 
 class DnDCharacter {
 
@@ -7,7 +8,9 @@ class DnDCharacter {
 	}
 
 	List<Integer> rollDice() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return new Random().ints(4)
+				.boxed()
+				.toList();
 	}
 
 	int modifier(int input) {
