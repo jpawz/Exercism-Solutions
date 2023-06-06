@@ -1,10 +1,14 @@
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
 class DnDCharacter {
 
 	int ability(List<Integer> scores) {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return scores.stream()
+				.sorted(Comparator.reverseOrder())
+				.limit(3)
+				.reduce(0, Integer::sum);
 	}
 
 	List<Integer> rollDice() {

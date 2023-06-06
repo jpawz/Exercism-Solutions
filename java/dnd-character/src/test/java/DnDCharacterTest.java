@@ -103,37 +103,31 @@ public class DnDCharacterTest {
 				.allMatch(d -> d >= 1 && d <= 6));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAbilityCalculationsUses3LargestNumbersFromScoresInDescendingOrder() {
 		assertEquals(9, dndCharacter.ability(List.of(4, 3, 2, 1)));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAbilityCalculationsUses3LargestNumbersFromFromScoresInAscendingOrder() {
 		assertEquals(9, dndCharacter.ability(List.of(1, 2, 3, 4)));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAbilityCalculationsUses3LargestNumbersFromScoresInRandomOrder() {
 		assertEquals(9, dndCharacter.ability(List.of(2, 4, 3, 1)));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAbilityCalculationsWithLowestEqualNumbers() {
 		assertEquals(3, dndCharacter.ability(List.of(1, 1, 1, 1)));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAbilityCalculationsWithHighestEqualNumbers() {
 		assertEquals(18, dndCharacter.ability(List.of(6, 6, 6, 6)));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testAbilityCalculationDoesNotChangeInputScores() {
 		List<Integer> scores = List.of(1, 2, 3, 4);
