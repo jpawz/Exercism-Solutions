@@ -4,6 +4,14 @@ import java.util.Random;
 
 class DnDCharacter {
 
+	private Integer strength;
+	private Integer dexterity;
+	private Integer constitution;
+	private Integer intelligence;
+	private Integer wisdom;
+	private Integer charisma;
+	private Integer hitpoints;
+
 	int ability(List<Integer> scores) {
 		return scores.stream()
 				.sorted(Comparator.reverseOrder())
@@ -22,30 +30,30 @@ class DnDCharacter {
 	}
 
 	int getStrength() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return strength == null ? strength = ability(rollDice()) : strength;
 	}
 
 	int getDexterity() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return dexterity == null ? dexterity = ability(rollDice()) : dexterity;
 	}
 
 	int getConstitution() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return constitution == null ? constitution = ability(rollDice()) : constitution;
 	}
 
 	int getIntelligence() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return intelligence == null ? intelligence = ability(rollDice()) : intelligence;
 	}
 
 	int getWisdom() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return wisdom == null ? wisdom = ability(rollDice()) : wisdom;
 	}
 
 	int getCharisma() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return charisma == null ? charisma = ability(rollDice()) : charisma;
 	}
 
 	int getHitpoints() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return hitpoints == null ? hitpoints = ability(rollDice()) : hitpoints;
 	}
 }
