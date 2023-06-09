@@ -3,7 +3,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class DnDCharacterTest {
@@ -137,7 +136,6 @@ public class DnDCharacterTest {
 		assertEquals(scores, List.of(1, 2, 3, 4));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testRandomCharacterIsValid() {
 		for (int i = 0; i < 1000; i++) {
@@ -157,7 +155,6 @@ public class DnDCharacterTest {
 		assertEquals(dndCharacter.getStrength(), dndCharacter.getStrength());
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testUniqueCharacterIsCreated() {
 		DnDCharacter uniqueDnDCharacter = new DnDCharacter();

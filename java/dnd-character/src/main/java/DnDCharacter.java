@@ -54,6 +54,6 @@ class DnDCharacter {
 	}
 
 	int getHitpoints() {
-		return hitpoints == null ? hitpoints = ability(rollDice()) : hitpoints;
+		return hitpoints == null ? hitpoints = 10 + modifier(getConstitution()) : hitpoints;
 	}
 }
