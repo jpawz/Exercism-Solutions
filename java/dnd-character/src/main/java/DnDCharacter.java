@@ -4,13 +4,23 @@ import java.util.Random;
 
 class DnDCharacter {
 
-	private Integer strength;
-	private Integer dexterity;
-	private Integer constitution;
-	private Integer intelligence;
-	private Integer wisdom;
-	private Integer charisma;
-	private Integer hitpoints;
+	private final int strength;
+	private final int dexterity;
+	private final int constitution;
+	private final int intelligence;
+	private final int wisdom;
+	private final int charisma;
+	private final int hitpoints;
+
+	public DnDCharacter() {
+		strength = ability(rollDice());
+		dexterity = ability(rollDice());
+		constitution = ability(rollDice());
+		intelligence = ability(rollDice());
+		wisdom = ability(rollDice());
+		charisma = ability(rollDice());
+		hitpoints = 10 + modifier(constitution);
+	}
 
 	int ability(List<Integer> scores) {
 		return scores.stream()
@@ -30,30 +40,30 @@ class DnDCharacter {
 	}
 
 	int getStrength() {
-		return strength == null ? strength = ability(rollDice()) : strength;
+		return strength;
 	}
 
 	int getDexterity() {
-		return dexterity == null ? dexterity = ability(rollDice()) : dexterity;
+		return dexterity;
 	}
 
 	int getConstitution() {
-		return constitution == null ? constitution = ability(rollDice()) : constitution;
+		return constitution;
 	}
 
 	int getIntelligence() {
-		return intelligence == null ? intelligence = ability(rollDice()) : intelligence;
+		return intelligence;
 	}
 
 	int getWisdom() {
-		return wisdom == null ? wisdom = ability(rollDice()) : wisdom;
+		return wisdom;
 	}
 
 	int getCharisma() {
-		return charisma == null ? charisma = ability(rollDice()) : charisma;
+		return charisma;
 	}
 
 	int getHitpoints() {
-		return hitpoints == null ? hitpoints = 10 + modifier(getConstitution()) : hitpoints;
+		return hitpoints;
 	}
 }
