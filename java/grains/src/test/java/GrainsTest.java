@@ -3,7 +3,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class GrainsTest {
@@ -73,7 +72,6 @@ public class GrainsTest {
 				.withMessage("square must be between 1 and 64");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void totalNumberOfGrainsOnABoard() {
 		BigInteger total = grains.grainsOnBoard();
