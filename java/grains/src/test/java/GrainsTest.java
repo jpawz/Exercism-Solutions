@@ -52,7 +52,6 @@ public class GrainsTest {
 		assertEquals(new BigInteger("9223372036854775808"), result);
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void errorOnNullBoardSize() {
 		assertThatExceptionOfType(IllegalArgumentException.class)
@@ -60,7 +59,6 @@ public class GrainsTest {
 				.withMessage("square must be between 1 and 64");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void errorOnNegativeBoardSize() {
 		assertThatExceptionOfType(IllegalArgumentException.class)
@@ -68,7 +66,6 @@ public class GrainsTest {
 				.withMessage("square must be between 1 and 64");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void errorOnExcessiveBoardSize() {
 		assertThatExceptionOfType(IllegalArgumentException.class)
