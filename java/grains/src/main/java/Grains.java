@@ -1,5 +1,4 @@
 import java.math.BigInteger;
-import java.util.stream.Stream;
 
 class Grains {
 
@@ -8,17 +7,14 @@ class Grains {
 			throw new IllegalArgumentException("square must be between 1 and 64");
 		}
 
-		return Stream.iterate(BigInteger.ONE, grains -> grains.add(grains))
-				.limit(square)
-				.reduce((prev, curr) -> curr)
-				.orElse(BigInteger.ZERO);
+		return BigInteger.valueOf(2)
+				.pow(square - 1);
 	}
 
 	BigInteger grainsOnBoard() {
-		return Stream.iterate(BigInteger.ONE, grains -> grains.add(grains))
-				.limit(64)
-				.reduce((prev, curr) -> prev.add(curr))
-				.orElse(BigInteger.ZERO);
+		return BigInteger.valueOf(2)
+				.pow(64)
+				.subtract(BigInteger.ONE);
 	}
 
 }
