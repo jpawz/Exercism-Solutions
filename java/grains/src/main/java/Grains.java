@@ -7,12 +7,12 @@ class Grains {
 			throw new IllegalArgumentException("square must be between 1 and 64");
 		}
 
-		return BigInteger.valueOf(2)
+		return BigInteger.TWO
 				.pow(square - 1);
 	}
 
 	BigInteger grainsOnBoard() {
-		return BigInteger.valueOf(2)
+		return BigInteger.TWO
 				.pow(64)
 				.subtract(BigInteger.ONE);
 	}
