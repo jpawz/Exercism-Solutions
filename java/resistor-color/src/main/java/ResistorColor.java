@@ -1,14 +1,14 @@
-import java.util.Map;
+import java.util.List;
 
 class ResistorColor {
-	private static final Map<String, Integer> RESISTORS = Map.of("black", 0, "brown", 1, "red", 2, "orange", 3,
-			"yellow", 4, "green", 5, "blue", 6, "violet", 7, "grey", 8, "white", 9);
+	private static final List<String> RESISTORS = List.of("black", "brown", "red", "orange", "yellow", "green", "blue",
+			"violet", "grey", "white");
 
 	int colorCode(String color) {
-		return RESISTORS.get(color);
+		return RESISTORS.indexOf(color);
 	}
 
 	String[] colors() {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return RESISTORS.toArray(new String[RESISTORS.size()]);
 	}
 }
