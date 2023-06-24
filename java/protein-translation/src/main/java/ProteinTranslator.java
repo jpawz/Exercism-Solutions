@@ -9,6 +9,7 @@ class ProteinTranslator {
 				.map(n -> n * 3)
 				.mapToObj(x -> rnaSequence.substring(x, x + 3))
 				.map(ProteinTranslator::codonToProtein)
+				.takeWhile(p -> !"STOP".equals(p))
 				.collect(Collectors.toList());
 	}
 
