@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class DiamondPrinter {
 
@@ -7,15 +11,32 @@ class DiamondPrinter {
 			return List.of("A");
 		}
 
-		int lineLength = a - 'A' + 1;
+		int lineLength = (a - 'A') * 2 + 1;
 
-		int leadingSpaces = lineLength / 2;
-		String firstRow = String
-				.format("%" + (leadingSpaces + 1) + "s%-" + (leadingSpaces - 1 == 0 ? 1 : leadingSpaces - 1) + "s", 'A',
-						' ');
-		String middleRow = String.format("%-" + lineLength + "s%s", a, a);
+		StringBuilder firstLine = new StringBuilder(" ".repeat(lineLength));
+		firstLine.setCharAt(lineLength / 2, 'A');
 
-		return List.of(firstRow, middleRow, firstRow);
+		List<String> middleRows = IntStream.range('B', a)
+				.mapToObj(c -> {
+					StringBuilder sb = new StringBuilder(" ".repeat(lineLength));
+					sb.setCharAt((lineLength / 2) - (c - 'A'), (char) c);
+					sb.setCharAt((lineLength / 2) + (c - 'A'), (char) c);
+					return sb.toString();
+				})
+				.collect(Collectors.toList());
+
+		StringBuilder middleLine = new StringBuilder(" ".repeat(lineLength));
+		middleLine.setCharAt(0, a);
+		middleLine.setCharAt(lineLength - 1, a);
+
+		List<String> diamond = new ArrayList<>();
+		diamond.add(firstLine.toString());
+		diamond.addAll(middleRows);
+		diamond.add(middleLine.toString());
+		Collections.reverse(middleRows);
+		diamond.addAll(middleRows);
+		diamond.add(firstLine.toString());
+		return diamond;
 	}
 
 }
