@@ -5,10 +5,6 @@ import java.util.stream.IntStream;
 class DiamondPrinter {
 
 	List<String> printToList(char a) {
-		if (a == 'A') {
-			return List.of("A");
-		}
-
 		int diamondSize = (a - 'A') * 2 + 1;
 		int halfOfDiamondSize = diamondSize / 2;
 
