@@ -108,4 +108,9 @@ public class DiamondPrinterTest {
 						"                         A                         ");
 	}
 
+	@Test
+	public void testPrintToList() {
+		throw new RuntimeException("not yet implemented");
+	}
+
 }
