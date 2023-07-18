@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 class DiamondPrinter {
@@ -10,13 +9,15 @@ class DiamondPrinter {
 
 		return IntStream.range(0, diamondSize)
 				.mapToObj(c -> {
-					StringBuilder sb = new StringBuilder(" ".repeat(diamondSize));
-					int characterIndex = halfOfDiamondSize - c < 0 ? c - halfOfDiamondSize : halfOfDiamondSize - c;
-					sb.setCharAt(characterIndex, (char) (a - characterIndex));
-					sb.setCharAt(diamondSize - 1 - characterIndex, (char) (a - characterIndex));
+					var sb = new StringBuilder(" ".repeat(diamondSize));
+					int leftCharIndex = Math.abs(halfOfDiamondSize - c);
+					int rightCharIndex = diamondSize - leftCharIndex - 1;
+					char currentChar = (char) (a - leftCharIndex);
+					sb.setCharAt(leftCharIndex, currentChar);
+					sb.setCharAt(rightCharIndex, currentChar);
 					return sb.toString();
 				})
-				.collect(Collectors.toList());
+				.toList();
 	}
 
 }
