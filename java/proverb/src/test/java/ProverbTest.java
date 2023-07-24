@@ -30,7 +30,6 @@ public class ProverbTest {
 								"And all for the want of a nail.");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void shortChainOfConsequences() {
 		String[] words = new String[] { "nail", "shoe", "horse" };

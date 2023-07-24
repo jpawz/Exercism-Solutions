@@ -18,9 +18,9 @@ class Proverb {
 			sb.append(words.get(i - 1));
 			sb.append(" the ");
 			sb.append(words.get(i));
-			sb.append(" was lost.");
+			sb.append(" was lost.\n");
 		}
-		sb.append("\nAnd all for the want of a ");
+		sb.append("And all for the want of a ");
 		sb.append(words.get(0));
 		sb.append(".");
 		return sb.toString()
