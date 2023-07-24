@@ -3,14 +3,6 @@ import java.util.List;
 
 class Proverb {
 
-	private static final List<String> PROVERBS = List.of(
-			"And all for the want of a nail.",
-			"For want of a battle the kingdom was lost.",
-			"For want of a message the battle was lost.",
-			"For want of a rider the message was lost.",
-			"For want of a horse the rider was lost.",
-			"For want of a shoe the horse was lost.",
-			"For want of a nail the shoe was lost.");
 	private final List<String> words;
 
 	Proverb(String[] words) {
@@ -18,12 +10,21 @@ class Proverb {
 	}
 
 	String recite() {
-		return PROVERBS.stream()
-				.filter(proverb -> words.stream()
-						.anyMatch(w -> proverb.contains(w)))
-				.findFirst()
-				.orElse("");
-//				.collect(Collectors.joining("\n"));
+		if (words.size() == 0)
+			return "";
+		var sb = new StringBuilder();
+		for (int i = 1; i < words.size(); i++) {
+			sb.append("For want of a ");
+			sb.append(words.get(i - 1));
+			sb.append(" the ");
+			sb.append(words.get(i));
+			sb.append(" was lost.");
+		}
+		sb.append("\nAnd all for the want of a ");
+		sb.append(words.get(0));
+		sb.append(".");
+		return sb.toString()
+				.strip();
 	}
 
 }

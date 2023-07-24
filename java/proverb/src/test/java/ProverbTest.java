@@ -20,7 +20,6 @@ public class ProverbTest {
 				.isEqualTo("And all for the want of a nail.");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void twoPiecesOfProverb() {
 		String[] words = new String[] { "nail", "shoe" };
