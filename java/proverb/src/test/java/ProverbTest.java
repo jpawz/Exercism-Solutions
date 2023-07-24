@@ -1,6 +1,5 @@
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class ProverbTest {
@@ -41,7 +40,6 @@ public class ProverbTest {
 								"And all for the want of a nail.");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void fullProverb() {
 		String[] words = new String[] { "nail", "shoe", "horse", "rider", "message", "battle", "kingdom" };
@@ -57,7 +55,6 @@ public class ProverbTest {
 								"And all for the want of a nail.");
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void fourPiecesModernizedProverb() {
 		String[] words = new String[] { "pin", "gun", "soldier", "battle" };
