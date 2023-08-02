@@ -1,14 +1,47 @@
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 class TwelveDays {
 
-	private static String begin = "On the first day of Christmas my true love gave to me: ";
+	private static String begin = "On the %s day of Christmas my true love gave to me: %sa Partridge in a Pear Tree.\n";
 
-	private static String[] parts = { "twelve Drummers Drumming", "eleven Pipers Piping", "ten Lords-a-Leaping",
+	private static String[] ordinals = {
+			"first",
+			"second",
+			"third",
+			"fourth",
+			"fifth",
+			"sixth",
+			"seventh",
+			"eighth",
+			"ninth",
+			"tenth",
+			"eleventh",
+			"twelfth"
+	};
+
+	private static String[] parts = {
+			"two Turtle Doves",
+			"three French Hens",
+			"four Calling Birds",
+			"five Gold Rings",
+			"six Geese-a-Laying",
+			"seven Swans-a-Swimming",
+			"eight Maids-a-Milking",
 			"nine Ladies Dancing",
-			"eight Maids-a-Milking", "seven Swans-a-Swimming", "six Geese-a-Laying", "five Gold Rings",
-			"four Calling Birds", "three French Hens", "two Turtle Doves", "a Partridge in a Pear Tree" };
+			"ten Lords-a-Leaping",
+			"eleven Pipers Piping",
+			"twelve Drummers Drumming" };
 
 	String verse(int verseNumber) {
-		return begin + parts[parts.length - verseNumber] + ".\n";
+		String end = "";
+		if (verseNumber > 1) {
+			end = IntStream.range(0, verseNumber - 1)
+					.mapToObj(i -> parts[verseNumber - i - 2])
+					.collect(Collectors.joining(", ", "", ", and "));
+		}
+
+		return String.format(begin, ordinals[verseNumber - 1], end);
 	}
 
 	String verses(int startVerse, int endVerse) {
