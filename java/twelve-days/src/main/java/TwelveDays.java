@@ -45,7 +45,9 @@ class TwelveDays {
 	}
 
 	String verses(int startVerse, int endVerse) {
-		throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
+		return IntStream.rangeClosed(startVerse, endVerse)
+				.mapToObj(i -> verse(i))
+				.collect(Collectors.joining("\n"));
 	}
 
 	String sing() {
