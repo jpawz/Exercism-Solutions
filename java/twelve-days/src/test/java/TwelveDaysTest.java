@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class TwelveDaysTest {
@@ -106,7 +105,6 @@ public class TwelveDaysTest {
 		assertEquals(expectedVerseTwelve, twelveDays.verse(12));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testFirstThreeVerses() {
 		String expectedVersesOneToThree = "On the first day of Christmas my true love gave to me: " +
@@ -129,7 +127,6 @@ public class TwelveDaysTest {
 		assertEquals(expectedVersesFourToSix, twelveDays.verses(4, 6));
 	}
 
-	@Ignore("Remove to run test")
 	@Test
 	public void testSingWholeSong() {
 		String expectedSong = "On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.\n" +
