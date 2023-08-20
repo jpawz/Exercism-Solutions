@@ -3,7 +3,7 @@ import java.util.stream.IntStream;
 
 class TwelveDays {
 
-	private static String begin = "On the %s day of Christmas my true love gave to me: %sa Partridge in a Pear Tree.\n";
+	private static String template = "On the %s day of Christmas my true love gave to me: %sa Partridge in a Pear Tree.\n";
 
 	private static String[] ordinals = {
 			"first",
@@ -41,7 +41,7 @@ class TwelveDays {
 					.collect(Collectors.joining(", ", "", ", and "));
 		}
 
-		return String.format(begin, ordinals[verseNumber - 1], end);
+		return String.format(template, ordinals[verseNumber - 1], end);
 	}
 
 	String verses(int startVerse, int endVerse) {
