@@ -14,7 +14,7 @@ public class LogLine {
 		case "WRN" -> LogLevel.WARNING;
 		case "ERR" -> LogLevel.ERROR;
 		case "FTL" -> LogLevel.FATAL;
-		default -> throw new IllegalArgumentException();
+		default -> LogLevel.UNKNOWN;
 		};
 	}
 
