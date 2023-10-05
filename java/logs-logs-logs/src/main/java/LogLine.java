@@ -1,13 +1,24 @@
 public class LogLine {
+	private final String logLine;
 
-    public LogLine(String logLine) {
-    }
+	public LogLine(String logLine) {
+		this.logLine = logLine;
+	}
 
-    public LogLevel getLogLevel() {
-        throw new UnsupportedOperationException("Please implement the getLogLevel() method");
-    }
+	public LogLevel getLogLevel() {
+		String level = logLine.substring(1, 4);
+		return switch (level) {
+		case "TRC" -> LogLevel.TRACE;
+		case "DBG" -> LogLevel.DEBUG;
+		case "INF" -> LogLevel.INFO;
+		case "WRN" -> LogLevel.WARNING;
+		case "ERR" -> LogLevel.ERROR;
+		case "FTL" -> LogLevel.FATAL;
+		default -> throw new IllegalArgumentException();
+		};
+	}
 
-    public String getOutputForShortLog() {
-        throw new UnsupportedOperationException("Please implement the getOutputForShortLog() method");
-    }
+	public String getOutputForShortLog() {
+		throw new UnsupportedOperationException("Please implement the getOutputForShortLog() method");
+	}
 }
