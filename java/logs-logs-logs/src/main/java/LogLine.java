@@ -19,6 +19,6 @@ public class LogLine {
 	}
 
 	public String getOutputForShortLog() {
-		throw new UnsupportedOperationException("Please implement the getOutputForShortLog() method");
+		return getLogLevel().getLevelNumber() + ":" + logLine.substring(7);
 	}
 }
